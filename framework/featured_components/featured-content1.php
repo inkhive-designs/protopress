@@ -2,7 +2,7 @@
 
 <div class="flex-images container">
 		<div class="section-title">
-			<?php echo get_theme_mod('protopress_grid_title', 'Featured Articles'); ?>
+			<?php echo esc_html(get_theme_mod('protopress_grid_title', 'Featured Articles')); ?>
 		</div>
 	
 	<?php if ( have_posts() ) : ?>
@@ -24,11 +24,11 @@
 						
 				<article data-w="<?php echo $image_width ?>" data-h="<?php echo $image_height; ?>" id="post-<?php the_ID(); ?>" <?php post_class('item'); ?>>
 				
-							<a class="" href="<?php the_permalink() ?>"><i class="fa hvr-wobble-to-bottom-right fa-link viewtext"><?php _e('View','protopress') ?></i></a>
+							<a class="" href="<?php the_permalink() ?>"><i class="fa hvr-wobble-to-bottom-right fa-link viewtext"><?php esc_html_e('View','protopress') ?></i></a>
 							<?php if (has_post_thumbnail()) : ?>	
-								<a href="<?php the_permalink() ?>" title="<?php the_title() ?>"><?php the_post_thumbnail('full'); ?></a>
+								<a href="<?php the_permalink() ?>" title="<?php the_title() ?>"><?php the_post_thumbnail('pop-thumb',array(  'alt' => trim(strip_tags( $post->post_title )))); ?></a>
 							<?php else : ?>
-								<a href="<?php the_permalink() ?>" title="<?php the_title() ?>"><img src="<?php echo get_template_directory_uri()."/assets/images/placeholder2.jpg"; ?>"></a>
+								<a href="<?php the_permalink() ?>" title="<?php the_title() ?>"><img alt="<?php the_title() ?>" src="<?php echo get_template_directory_uri()."/assets/images/placeholder2.jpg"; ?>"></a>
 	
 							<?php endif; ?>
 							

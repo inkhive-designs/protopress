@@ -1,0 +1,54 @@
+/* ---------- Header ------------- */
+
+
+#top-bar {
+  background: @sbg;
+  padding: 10px;
+
+  #searchicon {
+    background: #eee;
+    border: solid 2px #ddd;
+    padding-top: 6px;
+    padding-bottom: 4px;
+  }
+}
+#masthead {
+  text-align: left;
+  min-height: 220px;
+
+
+  #text-title-desc {
+    clear: none;
+    float: left;
+    @media screen and (max-width: 768px) {
+      float: none;
+    }
+    vertical-align: middle;
+  }
+
+  h1.site-title {
+    font-size: 32px;
+    font-weight: 300;
+    margin-top: 0px;
+  }
+  h2.site-description {
+    font-weight: 300;
+    font-size: 15px;
+    margin-top: 10px;
+  }
+}
+.site-branding {
+  padding: 45px 0;
+  overflow: hidden;
+  @media screen and (max-width: 768px) {
+    text-align: center;
+  }
+}
+
+#site-logo {
+  display: inline-block;
+  float: left;
+  @media screen and (max-width: 768px) {
+    float: none;
+  }
+}

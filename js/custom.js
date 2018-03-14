@@ -25,6 +25,7 @@ jQuery(document).ready( function() {
 	
 });
 
+// -- -- Nivo Slider -- -- //
 jQuery(window).load(function() {
         jQuery('#nivoSlider').nivoSlider({
 	        prevText: "<i class='fa fa-chevron-circle-left'></i>",
@@ -32,14 +33,66 @@ jQuery(window).load(function() {
         });
     });
 
-jQuery(document).ready(function(){
-  jQuery('.bxslider').bxSlider({
-	  nextSelector: '#slider-next',
-	  prevSelector: '#slider-prev',
-	  nextText: "<i class='fa fa-chevron-right'></i>",
-	  prevText: "<i class='fa fa-chevron-left'></i>",
-	  pager: false,
-	  auto: true,
-	  mode: 'fade',
-  });
+// -- -- Slicebox -- -- //
+
+// jQuery(document).ready(function(){
+//      jQuery('#sb-slider').slicebox({
+// 		 // autoplay:  true,
+//          perspective : 1200,
+//          colorHiddenSides : '#222',
+//
+// });
+//
+// });
+
+
+jQuery (function() {
+
+    var Page = (function() {
+
+        var $navArrows = jQuery( '#nav-arrows' ).hide(),
+            $shadow = jQuery( '#shadow' ).hide(),
+            slicebox = jQuery( '#sb-slider' ).slicebox( {
+                onReady : function() {
+
+                    $navArrows.show();
+                    $shadow.show();
+
+                },
+                orientation : 'r',
+                cuboidsRandom : true,
+                disperseFactor : 30
+            } ),
+
+            init = function() {
+
+                initEvents();
+
+            },
+            initEvents = function() {
+
+                // add navigation events
+                $navArrows.children( ':first' ).on( 'click', function() {
+
+                    slicebox.next();
+                    return false;
+
+                } );
+
+                $navArrows.children( ':last' ).on( 'click', function() {
+
+                    slicebox.previous();
+                    return false;
+
+                } );
+
+            };
+
+        return { init : init };
+
+    })();
+
+    Page.init();
+
 });
+

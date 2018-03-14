@@ -84,4 +84,11 @@ Version 1.0.1.1
 	
 Version 1.0.1.2
 
-	i) Added new WP tags		
+	i) Added new WP tags
+
+Version 1.1.0
+
+    i) Update to files framework.
+    ii) Skins Added
+    iii) Blog layout minor bug fixed.
+    iv) 3D cube major bug fixed.

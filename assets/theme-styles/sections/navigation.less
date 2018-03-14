@@ -1,0 +1,181 @@
+/* -------- Nav Menu ---------- */
+#site-navigation {
+  float: left;
+  background: @sbg;
+  ul {
+    li {
+      a {
+        padding: 10px;
+        color: #888;
+        font-weight: 400;
+        .transition( 0.2s all ease );
+        &:hover {
+          background: darken(@sbg,3%);
+        }
+      }
+      &:hover {
+        a {
+          background: darken(@sbg,3%);
+        }
+      }
+      ul li .menu-desc {
+        display: none;
+      }
+      ul.sub-menu, ul.children {
+        background: darken(@sbg,3%);
+        top: 60px;
+        display: block;
+        .transition( 0.4s all ease );
+        perspective: 1000;
+        -webkit-perspective: 1000;
+        transform-origin: top;
+        -webkit-transform-origin: top;
+        transform: perspective(350px) rotateX(-90deg);
+        -webkit-transform: perspective(350px) rotateX(-90deg);
+        -moz-transform: perspective(350px) rotateX(-90deg);
+        li ul {
+          transform-origin: left;
+          -webkit-transform-origin: left;
+          .transition( 0.4s all ease );
+          left: 100%;
+          top: 0;
+          opacity: 0;
+          -webkit-transform: rotateY(65deg) !important;
+          transform: rotateY(65deg) !important;
+          -moz-transform: rotateY(65deg) !important;
+          li ul {
+            display: none !important;
+          }
+        }
+        li:hover {
+          .transition(0.2s all ease);
+          /* -webkit-transition: 0.2s all ease !important; */
+          ul {
+            opacity: 1;
+            transform: rotateY(5deg) !important;
+            -webkit-transform: rotateY(5deg) !important;
+            -moz-transform: rotateY(5deg) !important;
+          }
+        }
+        a {
+          padding: 8px 15px;
+          font-weight: lighter;
+          font-size: 14px;
+          transition: 0.4s background ease, 0.6s padding ease;
+          &:hover {
+            background: #fff;
+            padding-left: 19px;
+          }
+        }
+      }
+      &:hover {
+        .transition(0.4s all ease);
+        -webkit-transition: 0.4s all ease !important;
+        ul.sub-menu, ul.children {
+          display: block;
+          transform: rotateX(0deg);
+          -webkit-transform: rotateX(0deg);
+        }
+      }
+    }
+    /* for the Currently active page */
+    .current_page_item > a, .current-menu-item > a, .current_page_ancestor > a {
+      color: #888;
+      background: darken(@sbg, 10%);
+      border-right: solid 1px darken(@sbg,15%);
+      border-left: solid 1px darken(@sbg,15%);
+    }
+  }
+  .fa {
+    padding: 0 5px 0 0;
+  }
+  .menu-desc {
+    font-size: 12px;
+    font-weight: 300;
+    color: #999;
+    display: inline-block;
+    margin-top: -5px;
+    font-style: italic;
+    text-transform: lowercase;
+  }
+  .current_page_item > a,
+  .current-menu-item > a,
+  .current_page_ancestor > a {
+    color: @accent;
+  }
+}
+
+.slicknav_menu {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .slicknav_menu {
+    display: block;
+    .slicknav_menutxt {
+      margin-top: 2px;
+    }
+  }
+  #site-navigation ul.menu {
+    display: none;
+  }
+  .slicknav_nav {
+    .menu-desc {
+      display: none !important;
+    }
+    a {
+      color: @content;
+      .fa {
+        margin-right: 5px;
+      }
+    }
+    .slicknav_arrow {
+      display: none;
+    }
+  }
+  .slicknav_menu {
+    background: #eee;
+  }
+  .slicknav_btn {
+    background: #ddd;
+    border: solid 1px #ccc;
+  }
+  .slicknav_menutxt {
+    color: @content !important;
+    text-shadow: none !important;
+  }
+  .slicknav_icon-bar {
+    background-color: @content !important;
+  }
+}
+
+/* TOP MENU */
+#top-menu {
+  float: left;
+  @media screen and (max-width: 600px) {
+    float: none;
+    text-align: center;
+    padding: 15px;
+  }
+  ul {
+    list-style: none;
+    margin-bottom: 0;
+    margin-left: 0px;
+    ul {
+      display: none;
+    }
+    li {
+      display: inline;
+      a {
+        padding: 8px 5px;
+        display: inline-block;
+        color: @content;
+        font-size: 13px;
+        font-weight: normal;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

@@ -3,7 +3,7 @@
 <div class="container">
 	<div class="popular-articles col-md-6">
 		<div class="section-title">
-			<?php echo get_theme_mod('protopress_box_title','Popular Articles'); ?>
+			<?php echo esc_html(get_theme_mod('protopress_box_title','Popular Articles')); ?>
 		</div>	
 		
 		<?php /* Start the Loop */ $count=0; ?>
@@ -16,13 +16,13 @@
 				    <div class="col-md-6 col-sm-6 imgcontainer">
 				    	<div class="popimage">
 				        <?php if (has_post_thumbnail()) : ?>	
-								<a href="<?php the_permalink() ?>" title="<?php the_title() ?>"><?php the_post_thumbnail('pop-thumb'); ?></a>
+								<a href="<?php the_permalink() ?>" title="<?php the_title() ?>"><?php the_post_thumbnail('pop-thumb',array(  'alt' => trim(strip_tags( $post->post_title )))); ?></a>
 						<?php else : ?>
-								<a href="<?php the_permalink() ?>" title="<?php the_title() ?>"><img src="<?php echo get_template_directory_uri()."/assets/images/placeholder2.jpg"; ?>"></a>
+								<a href="<?php the_permalink() ?>" title="<?php the_title() ?>"><img alt="<?php the_title() ?>" src="<?php echo get_template_directory_uri()."/assets/images/placeholder2.jpg"; ?>"></a>
 						<?php endif; ?>
 							<div class="titledesc">
 				            <h2><?php echo the_title(); ?></h2>
-				            <a class="hvr-float-shadow readmorelink" href="<?php the_permalink() ?>"><?php _e('Read More','protopress'); ?></a>
+				            <a class="hvr-float-shadow readmorelink" href="<?php the_permalink() ?>"><?php esc_html_e('Read More','protopress'); ?></a>
 				        </div>
 				    	</div>	
 				        
@@ -35,9 +35,9 @@
 	</div>
 <div class="latest-hap col-md-6">
 <div class="section-title">
-		<?php echo get_theme_mod('protopress_slider_title','Latest Happenings'); ?>
+		<?php echo esc_html(get_theme_mod('protopress_slider_title','Latest Happenings')); ?>
 	</div>		
-	<ul id="sb-slider" class="bxslider">
+	<ul id="sb-slider" class="sb-slider">
 		
 	 
 	 	<?php /* Start the Loop */ ?>
@@ -49,18 +49,18 @@
 					<?php if (has_post_thumbnail()) : //Don't Display Anything if no image. ?>	  
 				    <li>
 				        
-						<a href="<?php the_permalink() ?>" title="<?php the_title() ?>"><?php the_post_thumbnail('slider-thumb'); ?></a>
+						<a href="<?php the_permalink() ?>" title="<?php the_title() ?>"><?php the_post_thumbnail('slider-thumb',array(  'alt' => trim(strip_tags( $post->post_title )))); ?></a>
 				        <div class="sb-description">
 				            <h3><?php echo the_title(); ?></h3>
 				        </div>
 				    </li>
 				    <?php endif; ?>
 				    
-				<?php endforeach; ?>    
+				<?php endforeach; ?>
 	</ul>
 	<div id="nav-arrows" class="nav-arrows">
-		<a id="slider-next"></a>
-		<a id="slider-prev"></a>
+        <a id="slider-next"><i class="fa fa-chevron-circle-right"></i></a>
+        <a id="slider-prev"><i class="fa fa-chevron-circle-left"></i></a>
 	</div>
 </div>
 </div><!--.container-->
