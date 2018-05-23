@@ -1,38 +1,42 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: Gourav
- * Date: 3/13/2018
- * Time: 1:58 PM
+ * protopress Theme Customizer
+ *
+ * @package protopress
  */
 
-function protopress_customize_register_misc( $wp_customize )
-{
+function protopress_customize_register_misc( $wp_customize ) {
+
+    //Important Links
     $wp_customize->add_section(
-        'protopress_sec_upgrade',
+        'protopress_sec_premsupport',
         array(
-            'title' => __('Discover ProtoPress Pro', 'protopress'),
-            'priority' => 1,
+            'title'     => __('Important Links','protopress'),
+            'priority'  => 1,
         )
     );
 
     $wp_customize->add_setting(
-        'protopress_upgrade',
-        array('sanitize_callback' => 'esc_textarea')
+        'protopress_important_links',
+        array(
+            'sanitize_callback' => 'protopress_sanitize_text'
+        )
     );
 
     $wp_customize->add_control(
-        new WP_Customize_Upgrade_Control(
+        new Protopress_WP_Customize_Upgrade_Control(
             $wp_customize,
-            'protopress_upgrade',
+            'protopress_important_links',
             array(
-                'label' => __('More of Everything', 'protopress'),
-                'description' => __('ProtoPress Pro has more of Everything. More New Features, More Options, More Colors, More Fonts, More Layouts, Configurable Slider, Inbuilt Advertising Options, Multiple Skins, More Widgets, and a lot more options and comes with Dedicated Support. To Know More about the Pro Version, click here: <a href="http://rohitink.com/product/protopress-pro/">Upgrade to Pro</a>.', 'protopress'),
-                'section' => 'protopress_sec_upgrade',
-                'settings' => 'protopress_upgrade',
+                'settings'		=> 'protopress_important_links',
+                'section'		=> 'protopress_sec_premsupport',
+                'description'	=> '<a class="protopress-important-links" href="https://inkhive.com/contact-us/" target="_blank">'.__('InkHive Support Forum', 'protopress').'</a>
+                                    <a class="protopress-important-links" href="https://demo.inkhive.com/protopress-plus/" target="_blank">'.__('Protopress Live Demo', 'protopress').'</a>
+                                    <a class="protopress-important-links" href="https://inkhive.com/documentation/protopress" target="_blank">'.__('Protopress Documentation', 'protopress').'</a>
+                                    <a class="protopress-important-links" href="https://www.facebook.com/inkhivethemes/" target="_blank">'.__('We Love Our Facebook Fans', 'protopress').'</a>
+                                    <a class="protopress-important-links" href="https://wordpress.org/support/theme/wpre/reviews" target="_blank">'.__('Review Us', 'protopress').'</a>'
             )
         )
     );
 }
-
 add_action( 'customize_register', 'protopress_customize_register_misc' );

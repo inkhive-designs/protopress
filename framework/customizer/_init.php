@@ -16,6 +16,7 @@ function protopress_customize_register( $wp_customize ) {
 }
 add_action( 'customize_register', 'protopress_customize_register' );
 //Load All Individual Settings Based on Sections/Panels.
+require_once get_template_directory().'/framework/customizer/_customizer_controls.php';
 require_once get_template_directory().'/framework/customizer/googlefonts.php';
 require_once get_template_directory().'/framework/customizer/featured-content1.php';
 require_once get_template_directory().'/framework/customizer/featured-content2.php';

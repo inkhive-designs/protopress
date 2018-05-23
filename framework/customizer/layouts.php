@@ -8,9 +8,10 @@
 //layouts
 function protopress_customize_register_layouts( $wp_customize ){
 
+    $wp_customize->get_section('background_image')->panel = 'protopress_design_panel';
     // Layout and Design
     $wp_customize->add_panel( 'protopress_design_panel', array(
-        'priority'       => 3,
+        'priority'       => 50,
         'capability'     => 'edit_theme_options',
         'theme_supports' => '',
         'title'          => __('Design & Layout','protopress'),
@@ -28,7 +29,9 @@ function protopress_customize_register_layouts( $wp_customize ){
 
     $wp_customize->add_setting(
         'protopress_blog_layout',
-        array( 'sanitize_callback' => 'protopress_sanitize_blog_layout' )
+        array(
+            'default' => 'grid',
+            'sanitize_callback' => 'protopress_sanitize_blog_layout' )
     );
 
     function protopress_sanitize_blog_layout( $input ) {
@@ -140,52 +143,6 @@ function protopress_customize_register_layouts( $wp_customize ){
         $option = $control->manager->get_setting('protopress_disable_sidebar');
         return $option->value() == false ;
 
-    }
-
-    class Protopress_Custom_CSS_Control extends WP_Customize_Control {
-        public $type = 'textarea';
-
-        public function render_content() {
-            ?>
-            <label>
-                <span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
-                <textarea rows="8" style="width:100%;" <?php $this->link(); ?>><?php echo esc_textarea( $this->value() ); ?></textarea>
-            </label>
-            <?php
-        }
-    }
-
-    $wp_customize-> add_section(
-        'protopress_custom_codes',
-        array(
-            'title'			=> __('Custom CSS','protopress'),
-            'description'	=> __('Enter your Custom CSS to Modify design.','protopress'),
-            'priority'		=> 11,
-            'panel'			=> 'protopress_design_panel'
-        )
-    );
-
-    $wp_customize->add_setting(
-        'protopress_custom_css',
-        array(
-            'default'		=> '',
-            'sanitize_callback'	=> 'protopress_sanitize_text'
-        )
-    );
-
-    $wp_customize->add_control(
-        new Protopress_Custom_CSS_Control(
-            $wp_customize,
-            'protopress_custom_css',
-            array(
-                'section' => 'protopress_custom_codes',
-                'settings' => 'protopress_custom_css'
-            )
-        )
-    );
-
-    function protopress_sanitize_text( $input ) {
-        return wp_kses_post( force_balance_tags( $input ) );
     }
 
     $wp_customize-> add_section(

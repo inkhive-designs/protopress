@@ -22,27 +22,27 @@ function protopress_customize_register_nav( $wp_customize )
     );
 
     $wp_customize->add_setting('protopress_disable_nav_desc', array(
-        'default' => true,
         'sanitize_callback' => 'protopress_sanitize_checkbox',
     ));
 
     $wp_customize->add_control(
         'protopress_disable_nav_desc', array(
         'label' => __('Disable Description of Menu Items', 'protopress'),
+        'description' => __('Please set a menu before applying the changes', 'protopress'),
         'section' => 'protopress_menu_basic',
         'settings' => 'protopress_disable_nav_desc',
         'type' => 'checkbox'
     ));
 
     $wp_customize->add_setting('protopress_disable_active_nav', array(
-        'default' => true,
         'sanitize_callback' => 'protopress_sanitize_checkbox',
     ));
 
     $wp_customize->add_control(
         'protopress_disable_active_nav', array(
         'label' => __('Disable Highlighting of Current Active Item on the Menu.', 'protopress'),
-        'section' => 'nav',
+        'description' => __('Please set a menu before applying the changes', 'protopress'),
+        'section' => 'protopress_menu_basic',
         'settings' => 'protopress_disable_active_nav',
         'type' => 'checkbox'
     ));

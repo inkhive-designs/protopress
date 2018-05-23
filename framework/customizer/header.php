@@ -41,33 +41,6 @@ function protopress_customize_register_header_settings( $wp_customize )
         )
     );
 
-    $wp_customize->add_setting('protopress_logo_resize', array(
-        'default' => 100,
-        'sanitize_callback' => 'protopress_sanitize_positive_number',
-    ));
-    $wp_customize->add_control(
-        'protopress_logo_resize',
-        array(
-            'label' => __('Resize & Adjust Logo', 'protopress'),
-            'section' => 'title_tagline',
-            'settings' => 'protopress_logo_resize',
-            'priority' => 6,
-            'type' => 'range',
-            'active_callback' => 'protopress_logo_enabled',
-            'input_attrs' => array(
-                'min' => 30,
-                'max' => 200,
-                'step' => 5,
-            ),
-        )
-    );
-
-    function protopress_logo_enabled($control)
-    {
-        $option = $control->manager->get_setting('protopress_logo');
-        return $option->value() == true;
-    }
-
 
 //Settings for Header Image
     $wp_customize->add_setting('protopress_himg_style', array(

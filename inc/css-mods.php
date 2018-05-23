@@ -17,6 +17,10 @@ function protopress_custom_css_mods() {
 		echo "#site-navigation ul li a { padding: 20px 12px; }";
 		
 	endif;
+
+	if (get_theme_mod('protopress_disable_nav_desc')) :
+        echo "#site-navigation .menu-desc { display: none;}";
+	endif;
 	
 	//If Highlighting Nav active item is disabled
 	if ( get_theme_mod('protopress_disable_active_nav') ) :
@@ -75,19 +79,9 @@ function protopress_custom_css_mods() {
 		echo ".site-description { color: ".get_theme_mod('protopress_header_desccolor','#777')."; }";
 	endif;
 	
-	if ( get_theme_mod('protopress_custom_css') ) :
-		echo  get_theme_mod('protopress_custom_css');
-	endif;
-	
-	
 	if ( get_theme_mod('protopress_hide_title_tagline') ) :
 		echo "#masthead .site-branding #text-title-desc { display: none; }";
 	endif;
-	
-	if ( get_theme_mod('protopress_logo_resize') ) :
-		$val = get_theme_mod('protopress_logo_resize')/100;
-		echo "#masthead #site-logo img { transform: scale(".$val."); -webkit-transform: scale(".$val."); -moz-transform: scale(".$val."); -ms-transform: scale(".$val."); }";
-		endif;
 
 	echo "</style>";
 }

@@ -30,7 +30,7 @@ class Protopress_Menu_With_Description extends Walker_Nav_Menu {
 
 		$output .= $indent . '<li id="menu-item-'. $item->ID . '"' . $value . $class_names .'>';
 
-		$fontIcon = ! empty( $item->attr_title ) ? ' <i class="fa ' . esc_attr( $item->attr_title ) .'">' : '';
+		$fontIcon = ! empty( $item->attr_title ) ? ' <i class="' . esc_attr( $item->attr_title ) .'">' : '';
 		$attributes = ! empty( $item->target ) ? ' target="' . esc_attr( $item->target ) .'"' : '';
 		$attributes .= ! empty( $item->xfn ) ? ' rel="' . esc_attr( $item->xfn ) .'"' : '';
 		$attributes .= ! empty( $item->url ) ? ' href="' . esc_attr( $item->url ) .'"' : '';
@@ -60,7 +60,7 @@ class Protopress_Menu_With_Icon extends Walker_Nav_Menu {
 
 		$output .= $indent . '<li id="menu-item-'. $item->ID . '"' . $value . $class_names .'>';
 
-		$fontIcon = ! empty( $item->attr_title ) ? ' <i class="fa ' . esc_attr( $item->attr_title ) .'">' : '';
+		$fontIcon = ! empty( $item->attr_title ) ? ' <i class="' . esc_attr( $item->attr_title ) .'">' : '';
 		$attributes = ! empty( $item->target ) ? ' target="' . esc_attr( $item->target ) .'"' : '';
 		$attributes .= ! empty( $item->xfn ) ? ' rel="' . esc_attr( $item->xfn ) .'"' : '';
 		$attributes .= ! empty( $item->url ) ? ' href="' . esc_attr( $item->url ) .'"' : '';
@@ -99,50 +99,6 @@ function protopress_pagination() {
 	 }
 }
 
-/*
-** Customizer Controls 
-*/
-if (class_exists('WP_Customize_Control')) {
-	class WP_Customize_Category_Control extends WP_Customize_Control {
-        /**
-         * Render the control's content.
-         */
-        public function render_content() {
-            $dropdown = wp_dropdown_categories(
-                array(
-                    'name'              => '_customize-dropdown-categories-' . $this->id,
-                    'echo'              => 0,
-                    'show_option_none'  => __( '&mdash; Select &mdash;', 'protopress' ),
-                    'option_none_value' => '0',
-                    'selected'          => $this->value(),
-                )
-            );
- 
-            $dropdown = str_replace( '<select', '<select ' . $this->get_link(), $dropdown );
- 
-            printf(
-                '<label class="customize-control-select"><span class="customize-control-title">%s</span> %s</label>',
-                $this->label,
-                $dropdown
-            );
-        }
-    }
-}  
-
-if (class_exists('WP_Customize_Control')) {
-	class WP_Customize_Upgrade_Control extends WP_Customize_Control {
-        /**
-         * Render the control's content.
-         */
-        public function render_content() {
-             printf(
-                '<label class="customize-control-upgrade"><span class="customize-control-title">%s</span> %s</label>',
-                $this->label,
-                $this->description
-            );
-        }
-    }
-}
   
 /*
 ** Function to check if Sidebar is enabled on Current Page 

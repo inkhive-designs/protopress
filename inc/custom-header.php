@@ -26,6 +26,7 @@ function protopress_custom_header_setup() {
 	add_theme_support( 'custom-header', apply_filters( 'protopress_custom_header_args', array(
 		'default-image'          => '',
 		'default-text-color'     => '#e10d0d',
+		'width'                  => 1200,
 		'height'				 => 300,
 		'flex-height'            => true,
 		'wp-head-callback'       => 'protopress_header_style',

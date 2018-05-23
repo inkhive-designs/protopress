@@ -18,11 +18,11 @@ $social_networks = array( //Redefinied in Sanitization Function.
     'none' => __('-','protopress'),
     'facebook' => __('Facebook','protopress'),
     'twitter' => __('Twitter','protopress'),
-    'google-plus' => __('Google Plus','protopress'),
+    'google-plus-g' => __('Google Plus','protopress'),
     'instagram' => __('Instagram','protopress'),
     'rss' => __('RSS Feeds','protopress'),
     'vine' => __('Vine','protopress'),
-    'vimeo-square' => __('Vimeo','protopress'),
+    'vimeo-v' => __('Vimeo','protopress'),
     'youtube' => __('Youtube','protopress'),
     'flickr' => __('Flickr','protopress'),
 );
@@ -65,11 +65,11 @@ function protopress_sanitize_social( $input ) {
         'none' ,
         'facebook',
         'twitter',
-        'google-plus',
+        'google-plus-g',
         'instagram',
         'rss',
         'vine',
-        'vimeo-square',
+        'vimeo-v',
         'youtube',
         'flickr'
     );
