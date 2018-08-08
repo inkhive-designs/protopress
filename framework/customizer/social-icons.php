@@ -16,15 +16,15 @@ $wp_customize->add_section('protopress_social_section', array(
 
 $social_networks = array( //Redefinied in Sanitization Function.
     'none' => __('-','protopress'),
-    'facebook' => __('Facebook','protopress'),
+    'facebook-f' => __('Facebook','protopress'),
     'twitter' => __('Twitter','protopress'),
     'google-plus-g' => __('Google Plus','protopress'),
     'instagram' => __('Instagram','protopress'),
-    'rss' => __('RSS Feeds','protopress'),
     'vine' => __('Vine','protopress'),
     'vimeo-v' => __('Vimeo','protopress'),
     'youtube' => __('Youtube','protopress'),
     'flickr' => __('Flickr','protopress'),
+    'instagram'	=> __('Instagram', 'protopress'),
 );
 
 $social_count = count($social_networks);
@@ -63,7 +63,7 @@ endfor;
 function protopress_sanitize_social( $input ) {
     $social_networks = array(
         'none' ,
-        'facebook',
+        'facebook-f',
         'twitter',
         'google-plus-g',
         'instagram',
@@ -71,7 +71,8 @@ function protopress_sanitize_social( $input ) {
         'vine',
         'vimeo-v',
         'youtube',
-        'flickr'
+        'flickr',
+        'instagram'
     );
     if ( in_array($input, $social_networks) )
         return $input;

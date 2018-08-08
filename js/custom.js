@@ -35,15 +35,15 @@ jQuery(window).load(function() {
 
 // -- -- Slicebox -- -- //
 
-// jQuery(document).ready(function(){
-//      jQuery('#sb-slider').slicebox({
-// 		 // autoplay:  true,
-//          perspective : 1200,
-//          colorHiddenSides : '#222',
-//
-// });
-//
-// });
+jQuery(document).ready(function(){
+     jQuery('#sb-slider').slicebox({
+		 // autoplay:  true,
+         perspective : 1200,
+         colorHiddenSides : '#222',
+
+});
+
+});
 
 
 jQuery (function() {
