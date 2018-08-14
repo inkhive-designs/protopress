@@ -42,7 +42,7 @@ function protopress_customize_register_header_settings( $wp_customize )
     );
 
 
-//Settings for Header Image
+    //Settings for Header Image
     $wp_customize->add_setting('protopress_himg_style', array(
         'default' => true,
         'sanitize_callback' => 'protopress_sanitize_himg_style'
@@ -111,11 +111,13 @@ function protopress_customize_register_header_settings( $wp_customize )
     ));
 
 
-//Settings For Logo Area
-
+    //Settings For Logo Area
     $wp_customize->add_setting(
         'protopress_hide_title_tagline',
-        array('sanitize_callback' => 'protopress_sanitize_checkbox')
+        array(
+            'sanitize_callback' => 'protopress_sanitize_checkbox',
+            'transport'     => 'postMessage'
+        )
     );
 
     $wp_customize->add_control(
@@ -129,7 +131,10 @@ function protopress_customize_register_header_settings( $wp_customize )
 
     $wp_customize->add_setting(
         'protopress_branding_below_logo',
-        array('sanitize_callback' => 'protopress_sanitize_checkbox')
+        array(
+            'sanitize_callback' => 'protopress_sanitize_checkbox',
+            'transport'     => 'postMessage'
+        )
     );
 
     $wp_customize->add_control(
@@ -150,7 +155,10 @@ function protopress_customize_register_header_settings( $wp_customize )
 
     $wp_customize->add_setting(
         'protopress_center_logo',
-        array('sanitize_callback' => 'protopress_sanitize_checkbox')
+        array(
+            'sanitize_callback' => 'protopress_sanitize_checkbox',
+            'transport'     => 'postMessage'
+        )
     );
 
     $wp_customize->add_control(

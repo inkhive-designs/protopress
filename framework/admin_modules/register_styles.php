@@ -32,7 +32,7 @@ function protopress_scripts() {
 
     wp_enqueue_style( 'protopress-3dslider-style', get_template_directory_uri() . '/assets/css/slicebox.css' );
 
-    wp_enqueue_style( 'protopress-main-theme-style', get_template_directory_uri() . '/assets/theme-styles/css/'.get_theme_mod('protopress_skin', 'default').'.css', array(), esc_url( get_template_directory() . '/assets/theme-styles/css/'.get_theme_mod('protopress_skin', 'default').'.css' ) );
+    wp_enqueue_style( 'protopress-main-theme-style', get_template_directory_uri() . '/assets/theme-styles/css/'.get_theme_mod('protopress_skins', 'default').'.css', array(), null );
 
     wp_enqueue_script( 'protopress-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 

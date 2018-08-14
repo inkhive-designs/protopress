@@ -116,7 +116,9 @@ function protopress_customize_register_layouts( $wp_customize ){
         'protopress_sidebar_width',
         array(
             'default' => 4,
-            'sanitize_callback' => 'protopress_sanitize_positive_number' )
+            'sanitize_callback' => 'protopress_sanitize_positive_number',
+            'transport' => 'postMessage'
+        )
     );
 
     $wp_customize->add_control(
@@ -148,10 +150,28 @@ function protopress_customize_register_layouts( $wp_customize ){
     $wp_customize-> add_section(
         'protopress_custom_footer',
         array(
-            'title'			=> __('Custom Footer Text','protopress'),
-            'description'	=> __('Enter your Own Copyright Text.','protopress'),
+            'title'			=> __('Custom Footer Settings','protopress'),
             'priority'		=> 11,
             'panel'			=> 'protopress_design_panel'
+        )
+    );
+
+    $wp_customize->add_setting(
+        'protopress_fc_line_disable',
+        array(
+            'sanitize_callback' => 'protopress_sanitize_checkbox',
+            'transport' => 'postMessage',
+        )
+    );
+
+    $wp_customize->add_control(
+        'protopress_fc_line_disable',
+        array(
+            'settings' => 'protopress_fc_line_disable',
+            'section'   => 'protopress_custom_footer',
+            'label'     => __('Disable Footer Credit Line', 'protopress'),
+            'type'  =>   'checkbox',
+            'default'   => false
         )
     );
 
@@ -159,14 +179,16 @@ function protopress_customize_register_layouts( $wp_customize ){
         'protopress_footer_text',
         array(
             'default'		=> '',
-            'sanitize_callback'	=> 'sanitize_text_field'
+            'sanitize_callback'	=> 'sanitize_text_field',
+            'transport'     => 'postMessage'
         )
     );
-
+    
     $wp_customize->add_control(
         'protopress_footer_text',
         array(
             'section' => 'protopress_custom_footer',
+            'label'	=> __('Enter your Own Copyright Text.','protopress'),
             'settings' => 'protopress_footer_text',
             'type' => 'text'
         )

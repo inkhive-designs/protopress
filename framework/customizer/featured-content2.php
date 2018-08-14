@@ -8,7 +8,7 @@
 function protopress_customize_register_featured_content2( $wp_customize )
 {
 
-// CREATE THE FCA PANEL
+    // CREATE THE FCA PANEL
     $wp_customize->add_panel('protopress_fca_panel', array(
         'priority' => 40,
         'capability' => 'edit_theme_options',
@@ -18,7 +18,7 @@ function protopress_customize_register_featured_content2( $wp_customize )
     ));
 
 
-//SQUARE BOXES
+    //SQUARE BOXES
     $wp_customize->add_section(
         'protopress_fc_boxes',
         array(
@@ -30,7 +30,10 @@ function protopress_customize_register_featured_content2( $wp_customize )
 
     $wp_customize->add_setting(
         'protopress_box_enable',
-        array('sanitize_callback' => 'protopress_sanitize_checkbox')
+        array(
+            'sanitize_callback' => 'protopress_sanitize_checkbox',
+            'transport' => 'postMessage'
+        )
     );
 
     $wp_customize->add_control(
@@ -45,7 +48,10 @@ function protopress_customize_register_featured_content2( $wp_customize )
 
     $wp_customize->add_setting(
         'protopress_box_title',
-        array('sanitize_callback' => 'sanitize_text_field')
+        array(
+            'sanitize_callback' => 'sanitize_text_field',
+            'transport'     => 'postMessage'
+        )
     );
 
     $wp_customize->add_control(
@@ -75,7 +81,7 @@ function protopress_customize_register_featured_content2( $wp_customize )
     );
 
 
-//SLIDER
+    //SLIDER
     $wp_customize->add_section(
         'protopress_fc_slider',
         array(
@@ -89,7 +95,10 @@ function protopress_customize_register_featured_content2( $wp_customize )
 
     $wp_customize->add_setting(
         'protopress_slider_title',
-        array('sanitize_callback' => 'sanitize_text_field')
+        array(
+            'sanitize_callback' => 'sanitize_text_field',
+            'transport' => 'postMessage'
+        )
     );
 
     $wp_customize->add_control(

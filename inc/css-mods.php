@@ -83,6 +83,10 @@ function protopress_custom_css_mods() {
 		echo "#masthead .site-branding #text-title-desc { display: none; }";
 	endif;
 
+	if( get_theme_mod( 'protopress_fc_line_disable', true) ):
+        echo "#colophon .credit-line { display: none; }";
+	endif;
+
 	echo "</style>";
 }
 

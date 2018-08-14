@@ -23,6 +23,7 @@ function protopress_customize_register_nav( $wp_customize )
 
     $wp_customize->add_setting('protopress_disable_nav_desc', array(
         'sanitize_callback' => 'protopress_sanitize_checkbox',
+        'transport' => 'postMessage',
     ));
 
     $wp_customize->add_control(
@@ -36,6 +37,7 @@ function protopress_customize_register_nav( $wp_customize )
 
     $wp_customize->add_setting('protopress_disable_active_nav', array(
         'sanitize_callback' => 'protopress_sanitize_checkbox',
+        'transport'     => 'postMessage',
     ));
 
     $wp_customize->add_control(

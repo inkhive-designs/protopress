@@ -32,9 +32,8 @@ function protopress_customize_register_misc( $wp_customize ) {
                 'section'		=> 'protopress_sec_premsupport',
                 'description'	=> '<a class="protopress-important-links" href="https://inkhive.com/contact-us/" target="_blank">'.__('InkHive Support Forum', 'protopress').'</a>
                                     <a class="protopress-important-links" href="https://demo.inkhive.com/protopress-plus/" target="_blank">'.__('Protopress Live Demo', 'protopress').'</a>
-                                    <a class="protopress-important-links" href="https://inkhive.com/documentation/protopress" target="_blank">'.__('Protopress Documentation', 'protopress').'</a>
                                     <a class="protopress-important-links" href="https://www.facebook.com/inkhivethemes/" target="_blank">'.__('We Love Our Facebook Fans', 'protopress').'</a>
-                                    <a class="protopress-important-links" href="https://wordpress.org/support/theme/wpre/reviews" target="_blank">'.__('Review Us', 'protopress').'</a>'
+                                    <a class="protopress-important-links" href="https://wordpress.org/support/theme/protopress/reviews" target="_blank">'.__('Review Us', 'protopress').'</a>'
             )
         )
     );

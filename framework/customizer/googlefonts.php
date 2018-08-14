@@ -17,19 +17,20 @@ function protopress_customize_register_fonts( $wp_customize ){
         )
     );
 
-    $font_array = array('Raleway','Khula','Open Sans','Droid Sans','Droid Serif','Roboto','Roboto Condensed','Lato','Bree Serif','Oswald','Slabo','Lora','Source Sans Pro','PT Sans','Ubuntu','Lobster','Arimo','Bitter','Noto Sans');
+    $font_array = array('Raleway','Khula','Open Sans','Droid Sans','Droid Serif','Roboto','Roboto Condensed','Lato','Bree Serif','Oswald','Slabo 13px','Lora','Source Sans Pro','PT Sans','Ubuntu','Lobster','Arimo','Bitter','Noto Sans');
     $fonts = array_combine($font_array, $font_array);
 
     $wp_customize->add_setting(
         'protopress_title_font',
         array(
             'default'=> 'Raleway',
-            'sanitize_callback' => 'protopress_sanitize_gfont'
+            'sanitize_callback' => 'protopress_sanitize_gfont',
+            'transport' => 'postMessage'
         )
     );
 
     function protopress_sanitize_gfont( $input ) {
-        if ( in_array($input, array('Raleway','Khula','Open Sans','Droid Sans','Droid Serif','Roboto','Roboto Condensed','Lato','Bree Serif','Oswald','Slabo','Lora','Source Sans Pro','PT Sans','Ubuntu','Lobster','Arimo','Bitter','Noto Sans') ) )
+        if ( in_array($input, array('Raleway','Khula','Open Sans','Droid Sans','Droid Serif','Roboto','Roboto Condensed','Lato','Bree Serif','Oswald','Slabo 13px','Lora','Source Sans Pro','PT Sans','Ubuntu','Lobster','Arimo','Bitter','Noto Sans') ) )
             return $input;
         else
             return '';
@@ -47,8 +48,11 @@ function protopress_customize_register_fonts( $wp_customize ){
 
     $wp_customize->add_setting(
         'protopress_body_font',
-        array(	'default'=> 'Khula',
-            'sanitize_callback' => 'protopress_sanitize_gfont' )
+        array(
+            'default'=> 'Khula',
+            'sanitize_callback' => 'protopress_sanitize_gfont',
+            'transport'     => 'postMessage'
+        )
     );
 
     $wp_customize->add_control(

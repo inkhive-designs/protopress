@@ -14,9 +14,13 @@
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="site-info container">
-			<?php printf( __( 'Theme Designed by %1$s.', 'protopress' ), '<a target="blank" href="'.esc_url("http://inkhive.com/").'" rel="nofollow">Inkhive Designs</a>' ); ?>
+            <span class="credit-line">
+                <?php printf( __( 'Theme Designed by %1$s.', 'protopress' ), '<a target="blank" href="'.esc_url("http://inkhive.com/").'" rel="nofollow">Inkhive Designs</a>' ); ?>
+            </span>
 			<span class="sep"></span>
-			<?php echo ( get_theme_mod('protopress_footer_text') == '' ) ? ('&copy; '.date('Y').' '.get_bloginfo('name').__('. All Rights Reserved. ','protopress')) : get_theme_mod('protopress_footer_text'); ?>
+            <span class="footer-text">
+    			<?php echo ( get_theme_mod('protopress_footer_text') == '' ) ? ('&copy; '.date('Y').' '.get_bloginfo('name').__('. All Rights Reserved. ','protopress')) : get_theme_mod('protopress_footer_text'); ?>
+            </span>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 	

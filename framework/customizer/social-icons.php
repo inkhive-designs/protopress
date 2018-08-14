@@ -20,7 +20,7 @@ $social_networks = array( //Redefinied in Sanitization Function.
     'twitter' => __('Twitter','protopress'),
     'google-plus-g' => __('Google Plus','protopress'),
     'instagram' => __('Instagram','protopress'),
-    'vine' => __('Vine','protopress'),
+    'pinterest-p' => __('Pinterest','protopress'),
     'vimeo-v' => __('Vimeo','protopress'),
     'youtube' => __('Youtube','protopress'),
     'flickr' => __('Flickr','protopress'),
@@ -34,7 +34,8 @@ for ($x = 1 ; $x <= ($social_count - 3) ; $x++) :
     $wp_customize->add_setting(
         'protopress_social_'.$x, array(
         'sanitize_callback' => 'protopress_sanitize_social',
-        'default' => 'none'
+        'default' => 'none',
+        'transport' => 'postMessage'
     ));
 
     $wp_customize->add_control( 'protopress_social_'.$x, array(
@@ -68,7 +69,7 @@ function protopress_sanitize_social( $input ) {
         'google-plus-g',
         'instagram',
         'rss',
-        'vine',
+        'pinterest-p',
         'vimeo-v',
         'youtube',
         'flickr',
